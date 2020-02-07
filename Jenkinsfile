@@ -11,10 +11,5 @@ pipeline {
                 echo "My test ${env.REPO}" 
             }
         }
-        stage('Example stage 2') {
-            steps {
-                // 
-            }
-        }
     }
 }
