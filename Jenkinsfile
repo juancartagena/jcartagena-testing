@@ -1,24 +1,19 @@
 pipeline {
-    agent any 
+    agent {
+        // Define agent details here
+    }
     environment {
-        // Using returnStdout
-        CC = """${sh(
-                returnStdout: true,
-                script: 'echo "clang"'
-            )}""" 
-        // Using returnStatus
-        EXIT_STATUS = """${sh(
-                returnStatus: true,
-                script: 'exit 3'
-            )}"""
+        REPO     = credentials('repo-jcartagena')
     }
     stages {
-        stage('Example') {
-            environment {
-                DEBUG_FLAGS = '-g'
-            }
+        stage('Example stage 1') {
             steps {
-                sh 'printenv'
+                echo "My test ${env.REPO}" 
+            }
+        }
+        stage('Example stage 2') {
+            steps {
+                // 
             }
         }
     }
