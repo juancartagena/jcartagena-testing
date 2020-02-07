@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    environment {
-        REPO     = credentials('repo-jcartagena')
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
     }
     stages {
-        stage('Example stage 1') {
+        stage('Example') {
             steps {
-                echo "My test ${env.REPO}" 
+                echo "${params.Greeting} World!"
             }
         }
     }
