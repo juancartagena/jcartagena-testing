@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        // Define agent details here
+        any
     }
     environment {
         REPO     = credentials('repo-jcartagena')
