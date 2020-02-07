@@ -1,9 +1,15 @@
 pipeline {
-    agent { docker { image 'ruby' } }
+    agent any
+    environment { 
+        CC = 'clang'
+    }
     stages {
-        stage('build') {
+        stage('Example') {
+            environment { 
+                DEBUG_FLAGS = '-g'
+            }
             steps {
-                sh 'ruby --version'
+                sh 'printenv'
             }
         }
     }
